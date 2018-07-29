@@ -8,11 +8,10 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        #{controlHola.saludar()}<br></br>
-        #{controlHola.hola()}
-        
-        <f:view>
+        <h2>Bienvenido : ${request.userPrincipal.name}
+           | <a href="${request.contextPath}/salir" > Salir</a></h2>
 
+        <f:view>
 
             <h:form>
                 <h1><h:outputText value="List"/></h1>
@@ -71,6 +70,7 @@
                             <h:outputText value="Clave"/>
                         </f:facet>
                         <p:commandButton action="#{controlUsuario.seleccionaEdit(item)}" icon="ui-icon-pencil"/>
+                        <p:commandButton action="#{controlUsuario.eliminar(controlUsuario.usuarios)}" icon="ui-icon-trash"/>
                     </p:column>
                 </p:dataTable>
             </h:form>

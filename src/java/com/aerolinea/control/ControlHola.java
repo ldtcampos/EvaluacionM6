@@ -35,7 +35,7 @@ public class ControlHola implements Serializable{
     private ServiceHolaSpring serviceHolaSpring;
     
     public String saludar(){
-        return "hola desde el managed bean";
+        return "Bienvenidos a su aerolinea";
     }
     public ServiceHolaSpring getServiceHolaSpring() {
         return serviceHolaSpring;

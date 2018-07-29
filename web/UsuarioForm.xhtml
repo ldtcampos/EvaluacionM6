@@ -36,8 +36,9 @@
                     <p:inputText id="telefono" value="#{controlUsuario.usuario.telefono}" title="Telefono" />
                     <p:outputLabel value="Clave:" for="clave" />
                     <p:inputText id="clave" value="#{controlUsuario.usuario.clave}" title="Clave" required="true" requiredMessage="The Clave field is required."/>
-                    <p:commandButton value="Guardar" action="#{controlUsuario.guardar}"/>
+                    <p:commandButton ajax="false" value="Guardar" action="#{controlUsuario.guardar}"/>
                 </p:panelGrid>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             </h:form>
         </f:view>
 

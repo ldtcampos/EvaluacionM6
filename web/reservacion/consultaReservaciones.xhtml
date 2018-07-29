@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./AerolineaTemplate.xhtml">
+            <f:view> 
+                <h:form>
+                    <h2><h:outputText value="Listado de Vuelos"/></h2>
+                    <p:commandButton value="Nuevo" action="resrevacion/Reservaciones?faces-redirect=true"/>
+                    <p:dataTable value="#{controlReservaciones.reservaciones}" var="item">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Idreservacion"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idreservacion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Vuelo"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vuelo.idvuelo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Origen"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vuelo.aeropuertoByIdorigen}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Destino"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vuelo.aeropuertoByIddestino}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Destino"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vuelo.fecha}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Boletos"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nboletos}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Usuario"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuario}"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </f:view> 
+        </ui:composition>
+    </h:body>
+</html>
+
